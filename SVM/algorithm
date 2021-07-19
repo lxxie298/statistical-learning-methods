@@ -1,0 +1,20 @@
+在迭代次数范围内:
+  遍历所有点ai
+    计算f(xi)、Ei
+    判断是否符合KKT条件:
+    若符合：
+      随机找一个点aj
+      计算f(xj)、Ej
+      保存 alpha_old(i)、alpha_old(j)
+      用 Kij 计算η,即eta
+      用 Ei、Ej、η 计算 alpha_new(j)
+      用 alpha_old(i)、alpha_old(j) 计算 L、H
+      用 L、H 计算 alpha_new_clip(j)
+      用 alpha_old(i)、alpha_old(j) 计算 alpha_new(i)
+
+      用 Kij、alpha_old(i)、alpha_old(j)、alpha_new(i)、alpha_new(j) 计算 b1、b2
+      选出 b
+   如果找不到任何一个符合条件的 ai、aj，那么完成一次迭代；否则迭代次数归零
+
+
+    
